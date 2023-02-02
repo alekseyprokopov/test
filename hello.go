@@ -1,24 +1,30 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-	"time"
-)
+import "fmt"
 
 func main() {
-	type Person struct {
-		Name        string `json:"Имя"`
-		Email       string `json:"Почта"`
-		DateOfBirth time.Time
-	}
-	person := Person{
-		Name:  "Алекс",
-		Email: "alex@yandex.ru",
-	}
-	jsPerson, _ := json.Marshal(person)
+	//type Person struct {
+	//	Name        string `json:"Имя"`
+	//	Email       string `json:"Почта"`
+	//	DateOfBirth time.Time
+	//}
+	//person := Person{
+	//	Name:  "Алекс",
+	//	Email: "alex@yandex.ru",
+	//}
+	//jsPerson, _ := json.Marshal(person)
 
-	fmt.Println(string(jsPerson))
+	//fmt.Println(unintuitive())
+	//fmt.Println(intuitive())
+
+	var Global = 5
+
+	defer func() {
+		Global = 10
+		fmt.Println(Global)
+		Global = 5
+	}()
+	
 }
 
 func find(arr []int, k int) []int {
@@ -46,4 +52,14 @@ func RemoveDuplicates(input []string) []string {
 	}
 	return output
 
+}
+
+func unintuitive() (value string) {
+	defer func() { value = "На самом деле" }() // круглые скобки в конце означают, что функция вызывается
+	return "Казалось бы"
+}
+func intuitive() string {
+	value := "Казалось бы"
+	defer func() { value = "На самом деле" }()
+	return value
 }
