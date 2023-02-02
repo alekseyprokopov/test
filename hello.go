@@ -1,4 +1,4 @@
-package main
+package test
 
 import "fmt"
 
@@ -24,7 +24,7 @@ func main() {
 		fmt.Println(Global)
 		Global = 5
 	}()
-	
+
 }
 
 func find(arr []int, k int) []int {

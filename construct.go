@@ -1,4 +1,4 @@
-package main
+package test
 
 type Item struct {
 	NoOption   string
